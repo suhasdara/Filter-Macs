@@ -1,0 +1,29 @@
+#Line format in file for patterns
+#SearchPhrase ::: ColumnName   (Note: SearchPhrase does not support any regex)
+#Example: New authentication request ::: NewAuth
+#<space> required before and after the separator ':::' for the program to understand the search phrase and column name correctly.
+#Lines starting with '#' will be ignored, and line is not counted. '#' is supported in search phrase
+#Empty lines will be ignored, and line is not counted.
+#If a line is unformatted, output will have corresponding columns named UNFORMATTED. However, line is counted.
+
+
+New authentication request ::: NewAuth
+#The following two line are useful for HA deployments only
+Sent Check Mac In Active User List request to LS ::: HaReqToLS
+Received response from LS for automatic login request ::: HaRespFrLS
+2,NA,NA,NA,NA,NA,NA,NA,NA statemask ::: DpL2pass1
+MAC state changed to L2-PASS ::: L2PASS
+received from the agent. IP ::: InitialKA
+User-MAC binding learnt ::: TcpEstab
+CEI Scan started. ::: ScanStart
+CEI Scan Successful ::: ScanSuccess
+CEI Scan Failed ::: ScanFail
+CEI Scan Aborted ::: ScanAbort
+main thread received AVA message ::: StartAVA
+main thread received Kerberos Login ::: StartKerb
+Checking for max user limit ::: UsrLimitCheck
+NetworkUserLogin ::: Login
+NetworkUserFailedLogin ::: FailedLogin
+ECS-INFO-NetworkUserLogout ::: Logout
+#Last line in the life of a MAC should be the below line because sometimes MAC may go away (get invalidated) without completing login
+MAC invalidated successfully ::: MacInvalid
